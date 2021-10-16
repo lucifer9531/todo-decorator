@@ -7,8 +7,6 @@ export interface ITodo {
     completed: boolean;
 }
 
-const todoData: ITodo[] = [];
-
 class TodoList {
 
     private oTodoList: HTMLElement;
@@ -25,7 +23,7 @@ class TodoList {
         return TodoList.instance;
     }
 
-    @addTodo(todoData)
+    @addTodo
     public addItem(todo: ITodo) {
         const oItem: HTMLElement = document.createElement('div');
         oItem.className = 'todo-item';
@@ -33,7 +31,7 @@ class TodoList {
         this.oTodoList.appendChild(oItem);
     }
 
-    @changeCompleted(todoData)
+    @changeCompleted
     public toggleCompleted(id: number, completed?: boolean) {
         const oItems: HTMLCollection = document.getElementsByClassName('todo-item');
 
@@ -47,7 +45,7 @@ class TodoList {
         })
     }
 
-    @removeTodo(todoData)
+    @removeTodo
     public removeItem(id: number) {
         const oItems: HTMLCollection = document.getElementsByClassName('todo-item');
 
